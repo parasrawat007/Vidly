@@ -12,10 +12,26 @@ namespace Vidly.Controllers
         // GET: Movies
         public ActionResult Random()
         {
-            //return Content("Hello World!!");
-            //return HttpNotFound();
-            //return new EmptyResult();
-            return RedirectToAction("Index", "Home", new { Page = 1, SortBy = "name" });
+            var movie = new Movie() { Name = "Shrek!" };
+            return View(movie);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            return Content("id = " + id);
+        }
+        public ActionResult Index(int? pageIndex,string sortBy)
+        {
+            if (!pageIndex.HasValue)
+            {
+                pageIndex = 1;
+            }
+            if(String.IsNullOrWhiteSpace(sortBy))
+            {
+                sortBy = "Name";
+            }
+
+            return Content(String.Format("Page Index = {0} & Sort By = {1}",pageIndex,sortBy));
         }
     }
 }
