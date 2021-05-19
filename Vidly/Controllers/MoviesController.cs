@@ -33,6 +33,7 @@ namespace Vidly.Controllers
 
             return Content(String.Format("Page Index = {0} & Sort By = {1}",pageIndex,sortBy));
         }
+        [Route("movies/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year,int month)
         {
             return Content(year + "/" + month);
