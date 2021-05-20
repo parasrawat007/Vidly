@@ -1,4 +1,4 @@
-﻿@model Vidly.Models.Customer
+﻿@model Vidly.ViewModels.NewCustomerViewModel
 @{
     ViewBag.Title = "New";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,19 +9,24 @@
 @using (Html.BeginForm("Create", "Customer"))
 {
 
-    <div class="col-md-3">
-        @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    <div class="col-md-4">
+        @Html.LabelFor(m => m.Customer.Name)
+        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })
     </div>
-    <div class="col-md-3">
-        @Html.LabelFor(m => m.Birthdate)
-        @Html.TextBoxFor(m => m.Birthdate, new { @class = "form-control" })
+    <div class="col-md-4">
+        @Html.LabelFor(m => m.Customer.Birthdate)
+        @Html.TextBoxFor(m => m.Customer.Birthdate, new { @class = "form-control" })
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <div class="form-check form-switch">
-            @Html.CheckBoxFor(m => m.IsSubscribedToNewsletter, new { @class = "form-check-input"})
-            @Html.LabelFor(m => m.IsSubscribedToNewsletter, new { @class = "form-check-label"})
+            @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsletter, new { @class = "form-check-input" })
+            @Html.LabelFor(m => m.Customer.IsSubscribedToNewsletter, new { @class = "form-check-label" })
         </div>
     </div>
+    <div class="col-md-4">
+        @Html.LabelFor(m => m.Customer.MembershipTypeId )
+        @Html.DropDownListFor(m => m.Customer.MembershipTypeId,new SelectList(Model.MembershipTypes,"Id","Name"),"Select Membership Type", new { @class = "form-select" })
+    </div>
+
 }
 
