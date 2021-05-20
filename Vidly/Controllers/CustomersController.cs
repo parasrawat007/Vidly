@@ -10,7 +10,7 @@ namespace Vidly.Controllers
     public class CustomersController : Controller
     {
         List<Customer> customers = new List<Customer>()
-            {
+            { 
                 new Customer(){Id=1,Name="John Smith"},
                 new Customer(){Id=2,Name="Marry Williams"}
             };
