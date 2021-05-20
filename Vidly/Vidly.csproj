@@ -154,6 +154,14 @@
     <Compile Include="Migrations\202105200742490_PopulatingNameOfMembershipType.designer.cs">
       <DependentUpon>202105200742490_PopulatingNameOfMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105200810247_AddingBirthDateToCustomer.cs" />
+    <Compile Include="Migrations\202105200810247_AddingBirthDateToCustomer.designer.cs">
+      <DependentUpon>202105200810247_AddingBirthDateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105200821501_MakingNameRequired.cs" />
+    <Compile Include="Migrations\202105200821501_MakingNameRequired.designer.cs">
+      <DependentUpon>202105200821501_MakingNameRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -333,6 +341,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105200742490_PopulatingNameOfMembershipType.resx">
       <DependentUpon>202105200742490_PopulatingNameOfMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105200810247_AddingBirthDateToCustomer.resx">
+      <DependentUpon>202105200810247_AddingBirthDateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105200821501_MakingNameRequired.resx">
+      <DependentUpon>202105200821501_MakingNameRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
