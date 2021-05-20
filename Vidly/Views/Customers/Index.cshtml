@@ -1,4 +1,4 @@
-﻿@model ICollection<Vidly.Models.Customer>
+﻿@model IEnumerable<Vidly.Models.Customer>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,7 +22,7 @@ else
             @foreach (var customer in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(@customer.Name, "Detalis", new { @customer.Id })</td>
+                    <td>@Html.ActionLink(@customer.Name, "Details", new { @customer.Id })</td>
                 </tr>
             }
         </tbody>
