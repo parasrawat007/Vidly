@@ -13,13 +13,15 @@ namespace Vidly.Controllers
         public ActionResult Random()
         {
             var movie = new Movie() { Name = "Shrek!" };
-            return View(movie);
+            ViewData["movie"] = movie;
+            return View();
         }
 
         public ActionResult Edit(int id)
         {
             return Content("id = " + id);
         }
+
         public ActionResult Index(int? pageIndex,string sortBy)
         {
             if (!pageIndex.HasValue)
@@ -33,6 +35,7 @@ namespace Vidly.Controllers
 
             return Content(String.Format("Page Index = {0} & Sort By = {1}",pageIndex,sortBy));
         }
+
         [Route("movies/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year,int month)
         {
