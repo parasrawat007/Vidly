@@ -162,9 +162,26 @@
     <Compile Include="Migrations\202105200821501_MakingNameRequired.designer.cs">
       <DependentUpon>202105200821501_MakingNameRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105200927540_AddingGenre.cs" />
+    <Compile Include="Migrations\202105200927540_AddingGenre.designer.cs">
+      <DependentUpon>202105200927540_AddingGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105200933009_AddingGenreToMovie.cs" />
+    <Compile Include="Migrations\202105200933009_AddingGenreToMovie.designer.cs">
+      <DependentUpon>202105200933009_AddingGenreToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105200934326_PopulatingGenre.cs" />
+    <Compile Include="Migrations\202105200934326_PopulatingGenre.designer.cs">
+      <DependentUpon>202105200934326_PopulatingGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105200955110_AddingPropertiesToMovie.cs" />
+    <Compile Include="Migrations\202105200955110_AddingPropertiesToMovie.designer.cs">
+      <DependentUpon>202105200955110_AddingPropertiesToMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -319,6 +336,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202105200651137_IntialModel.resx">
@@ -347,6 +365,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105200821501_MakingNameRequired.resx">
       <DependentUpon>202105200821501_MakingNameRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105200927540_AddingGenre.resx">
+      <DependentUpon>202105200927540_AddingGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105200933009_AddingGenreToMovie.resx">
+      <DependentUpon>202105200933009_AddingGenreToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105200934326_PopulatingGenre.resx">
+      <DependentUpon>202105200934326_PopulatingGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105200955110_AddingPropertiesToMovie.resx">
+      <DependentUpon>202105200955110_AddingPropertiesToMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

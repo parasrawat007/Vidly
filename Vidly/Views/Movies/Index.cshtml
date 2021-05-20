@@ -14,13 +14,15 @@ else
         <thead>
             <tr>
                 <th scope="col">Movies</th>
+                <th scope="col">Genre</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var Movie in Model)
             {
                 <tr>
-                    <td>@Movie.Name</td>
+                    <td>@Html.ActionLink(Movie.Name,"Details",new { Movie.Id })</td>
+                    <td>@Movie.Genre.Name</td>
                 </tr>
             }
         </tbody>
