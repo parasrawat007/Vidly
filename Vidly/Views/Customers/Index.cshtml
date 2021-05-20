@@ -1,0 +1,31 @@
+﻿@model ICollection<Vidly.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+@if(!Model.Any())
+{
+    <p>We Don't have any customer</p>
+}
+else
+{
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Customers</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(@customer.Name, "Detalis", new { @customer.Id })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
