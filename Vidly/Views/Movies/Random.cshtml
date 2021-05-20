@@ -3,7 +3,19 @@
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@*This is multiline comment *@
+@{ 
+    var className = Model.Customers.Count > 0 ? "popular" : null;
+}
+<h2 class="@className">@Model.Movie.Name</h2>
 
-<h2>@Model.Movie.Name</h2>
-
-
+@if(Model.Customers.Count==0)
+{
+    <text>No One Has Rented this movie before</text>
+}
+<ul>
+    @foreach (var customer in Model.Customers)
+     {
+        <li>@customer.Name</li>
+     }
+</ul>
