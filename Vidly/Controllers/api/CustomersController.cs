@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Vidly.Models;
 
-namespace Vidly.Controllers.api
+namespace Vidly.Controllers.Api
 {
     public class CustomersController : ApiController
     {
@@ -16,7 +16,7 @@ namespace Vidly.Controllers.api
             _context = new ApplicationDbContext();
         }
         protected override void Dispose(bool disposing)
-        {
+        { 
             _context.Dispose();
         }
         //GET /api/customers
@@ -24,7 +24,7 @@ namespace Vidly.Controllers.api
         {
             return _context.Customers.ToList();
         }
-        //GET /api/customer
+        //GET /api/customers
         public Customer GetCustomer(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
@@ -33,11 +33,11 @@ namespace Vidly.Controllers.api
             return customer;
         }
 
-        //Post /api/customer
+        //Post /api/customers
         [HttpPost]
         public Customer CreateCustomer(Customer customer)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
@@ -69,7 +69,7 @@ namespace Vidly.Controllers.api
              */
             _context.SaveChanges();
         }
-        //DELETE /api/customer/1
+        //DELETE /api/customers/1
         public void DeleteCustomer(int id)
         {
             var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
