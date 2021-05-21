@@ -23,10 +23,10 @@ namespace Vidly.Models
         [Display(Name="Number In Stock")]
         public byte NumberInStock { get; set; }
 
-        [Required]
         public Genre Genre { get; set; }
 
         [Display(Name ="Genre")]
+        [Required]
         public byte GenreId { get; set; }
     }
 }

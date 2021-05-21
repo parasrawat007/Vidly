@@ -36,7 +36,15 @@ namespace Vidly.Controllers
 
             return View(viewModel);
         }
-            public ActionResult Details(int id)
+        [HttpPost]
+        public ActionResult Create(Movie movie)
+        {
+            movie.DateAdded=DateTime.Now;
+            _context.Movies.Add(movie);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult Details(int id)
         {
             var movie = _context.Movies.Include(x=>x.Genre).SingleOrDefault(m => m.Id == id);
             if(movie==null)
