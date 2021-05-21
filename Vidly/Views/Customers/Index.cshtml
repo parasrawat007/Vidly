@@ -6,7 +6,8 @@
 
 <h2>Customers</h2>
 
-@if(!Model.Any())
+@Html.ActionLink("Create", "CustomerForm", null, new { @class = "btn btn-primary mb-3" })
+@if (!Model.Any())
 {
     <p>We Don't have any customer</p>
 }
@@ -17,7 +18,7 @@ else
             <tr>
                 <th scope="col">Customers</th>
                 <th scope="col">Membership Type</th>
-           </tr>
+            </tr>
         </thead>
         <tbody>
             @foreach (var customer in Model)
