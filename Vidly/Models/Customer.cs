@@ -21,5 +21,8 @@ namespace Vidly.Models
         [Display(Name="Date of Birth")]
         [Min18YearsIfAMember]
         public DateTime? Birthdate { get; set; }
+
+        public static readonly byte Unkown = 0;
+        public static readonly byte PayAsYouGo = 1;
     }
 }
