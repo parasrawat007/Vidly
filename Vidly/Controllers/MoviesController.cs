@@ -27,22 +27,52 @@ namespace Vidly.Controllers
             return View(Movies);
         }
 
-        public ActionResult New()
+        public ActionResult MovieForm()
         {
-            var viewModel = new NewMovieViewModel()
+            ViewBag.Title = "New Movie";
+            var viewModel = new MovieFormViewModel()
             {
                 Genres = _context.Genres.ToList()
             };
-
             return View(viewModel);
         }
+
         [HttpPost]
-        public ActionResult Create(Movie movie)
+        public ActionResult Save(Movie movie)
         {
-            movie.DateAdded=DateTime.Now;
-            _context.Movies.Add(movie);
+            if (movie.Id == 0)
+            {
+                movie.DateAdded = DateTime.Now;
+                _context.Movies.Add(movie);
+            }
+            else
+            {
+                var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+
+                movieInDb.Name = movie.Name;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.DateAdded = movie.DateAdded;
+                movieInDb.GenreId = movie.GenreId;
+                movieInDb.NumberInStock = movie.NumberInStock;
+
+            }
             _context.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult Edit(int id)
+        {
+            ViewBag.Title = "Edit Movie";
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+            if(movie==null)
+            {
+                return HttpNotFound();
+            }
+            var viewModel = new MovieFormViewModel()
+            {
+                Movie=movie,
+                Genres =_context.Genres.ToList()
+            };
+            return View("MovieForm",viewModel);
         }
         public ActionResult Details(int id)
         {
@@ -69,10 +99,7 @@ namespace Vidly.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Edit(int id)
-        {
-            return Content("id = " + id);
-        }
+       
 
       
         [Route("movies/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
