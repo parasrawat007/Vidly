@@ -7,7 +7,7 @@ using Vidly.Models;
 
 namespace Vidly.Dtos
 {
-    public class CustomerDtos
+    public class CustomerDto
     {
         public int Id { get; set; }
 
