@@ -47,6 +47,7 @@ namespace Vidly.Controllers.Api
             }
 
             var movie = Mapper.Map<MovieDto, Movie>(movieDto);
+            movie.DateAdded = DateTime.Now;
             _context.Movies.Add(movie);
             _context.SaveChanges();
 
@@ -57,7 +58,7 @@ namespace Vidly.Controllers.Api
 
         //PUT api/movies/1
         [HttpPut]
-        public void UpdateMovie(int id,Movie movieDto)
+        public void UpdateMovie(int id,MovieDto movieDto)
         {
             if (!ModelState.IsValid)
             {
@@ -71,7 +72,7 @@ namespace Vidly.Controllers.Api
                 new HttpResponseException(HttpStatusCode.NotFound);
             }
 
-            Mapper.Map(movieInDb, movieDto);
+            Mapper.Map(movieDto,movieInDb);
 
             _context.SaveChanges();
         }
