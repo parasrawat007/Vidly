@@ -20,21 +20,36 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var Movie in Model)
-            {
-                <tr>
-                    <td>@Html.ActionLink(Movie.Name,"Edit",new { Movie.Id })</td>
-                    <td>@Movie.Genre.Name</td>
-                    <td><button class="btn btn-danger js-delete" data-movie-id=@Movie.Id> Delete</button></td>
-                </tr>
-            }
         </tbody>
     </table>
 }
 @section scripts
 {
 <script>
-    $("#Movies").DataTable();
+    $("#Movies").DataTable({
+        ajax: {
+            url: "/api/movies",
+            dataSrc:""
+        },
+        columns: [
+            {
+                data: "name",
+                render: function (data, type, movie) {
+                    return "<a href='movies/edit/"+movie.id+"'>"+data+"</a>"
+                }
+            },
+            {
+                data:"name"
+            },
+            {
+                data:"id",
+                render: function (data) {
+                    return "<button class='btn btn-danger js-delete' data-movie-id="+data+"> Delete</button>"
+                }
+
+            }
+        ]
+    });
     $(document).ready(function () {
         $("#Movies").on("click", ".js-delete", function () {
             var button = $(this);

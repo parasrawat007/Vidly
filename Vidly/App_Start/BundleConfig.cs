@@ -15,7 +15,7 @@ namespace Vidly
                         "~/Scripts/jquery.validate*"));
             bundles.Add(new ScriptBundle("~/bundles/datatable").Include(
                         "~/Scripts/datatables/jquery.datatables.js",
-                        "~/Scripts/datatables/datatables.bootstrap.js"));
+                        "~/Scripts/datatables/datatables.bootstrap4.js"));
 
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -34,7 +34,7 @@ namespace Vidly
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-lumen.css",
                       "~/Content/Site.css",
-                      "~/Content/dataTables.bootstrap.css"));
+                      "~/Content/dataTables.bootstrap4.css"));
         }
     }
 }
