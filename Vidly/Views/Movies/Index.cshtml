@@ -5,12 +5,7 @@
 }
 <h2>Movies</h2>
 @Html.ActionLink("Create", "MovieForm", null, new { @class="btn btn-primary mb-3"})
-@if (!Model.Any())
-{
-    <p>We Don't have any Movies</p>
-}
-else
-{
+
     <table id="Movies" class="table table-hover table-bordered">
         <thead>
             <tr>
@@ -22,7 +17,6 @@ else
         <tbody>
         </tbody>
     </table>
-}
 @section scripts
 {
 <script>
@@ -39,7 +33,7 @@ else
                 }
             },
             {
-                data:"name"
+                data:"genre.name"
             },
             {
                 data:"id",
