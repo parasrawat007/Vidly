@@ -157,7 +157,8 @@ namespace Vidly.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    
+                    //Vidly@123 =admin
+                    //Vidly@123=Guest
 
                     //Temp Code for Role
                     //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());

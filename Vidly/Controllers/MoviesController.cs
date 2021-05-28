@@ -23,9 +23,12 @@ namespace Vidly.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            return View();
-        }
+            if(User.IsInRole(RoleName.CanManageMovies))
+                return View("List");
 
+            return View("ReadOnlyList");
+        }
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult MovieForm()
         {
             ViewBag.Title = "New Movie";
