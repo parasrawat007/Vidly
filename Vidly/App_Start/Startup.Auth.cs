@@ -55,10 +55,11 @@ namespace Vidly.App_Start
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
             //   consumerSecret: "");
-
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+           
+            
+            app.UseFacebookAuthentication(
+               appId: "627083891584535",
+               appSecret: "e320671e01264c9c2407a367b6174edf");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
