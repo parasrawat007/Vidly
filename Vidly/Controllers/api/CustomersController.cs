@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Vidly.Dtos;
 using Vidly.Models;
+using Vidly.Models.Identity_Models;
 
 namespace Vidly.Controllers.Api
 {

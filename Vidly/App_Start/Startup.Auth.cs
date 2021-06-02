@@ -6,6 +6,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 using Vidly.Models;
+using Vidly.Models.Identity_Models;
 
 [assembly: OwinStartup(typeof(Vidly.App_Start.Startup1))]
 
