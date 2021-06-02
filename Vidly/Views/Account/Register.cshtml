@@ -1,4 +1,4 @@
-﻿@model Vidly.Models.RegisterViewModel
+﻿@model Vidly.ViewModels.RegisterViewModel
 @{
     ViewBag.Title = "Register";
 }
@@ -37,6 +37,12 @@
 
         @Html.TextBoxFor(m => m.DrivingLicense, new { @class = "form-control" })
 
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+        </div>
     </div>
     <input type="submit" class="btn btn-primary" value="Register" />
 
