@@ -15,7 +15,9 @@
     </div>
 
     @Html.Partial("_Footer")
-    @Scripts.Render("~/bundles/popper")
+    @Scripts.Render("~/bundles/popper") @* Always put scripts on the bottom of the file so that users can atleast 
+                                            see the app ui . js will be downloaded later 
+                                            ---it will be downloaded at the end *@ 
     @*@Scripts.Render("~/bundles/boostrap")*@
 
     <script src="~/Scripts/bootstrap.js"></script>

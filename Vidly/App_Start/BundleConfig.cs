@@ -35,6 +35,8 @@ namespace Vidly
                       "~/Content/bootstrap-lumen.css",
                       "~/Content/Site.css",
                       "~/Content/dataTables.bootstrap4.css"));
+
+            //BundleTable.EnableOptimizations = true;
         }
     }
 }
