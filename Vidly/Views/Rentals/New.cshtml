@@ -7,7 +7,7 @@
 <form class="col-md-3">
     <div class="mb-3">
         <label class="form-label">Customer</label>
-        <input type="text" class="form-control" />
+        <input id="customer" type="text" class="form-control typeahead" />
     </div>
 
     <div class="mb-3">
@@ -16,5 +16,36 @@
     </div>
     <button class="btn btn-primary">Submit</button>
 </form>
+
+@section scripts{
+<script>
+    
+    $(document).ready(function () {
+      
+        var customers = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            remote: {
+                url: '/api/customers?query=%QUERY',
+                wildcard: '%QUERY'
+            }
+        });
+        
+
+        $('#customer').typeahead({
+            minLength:3,
+            highlight: true
+        },
+            {
+                name: 'customers',
+                display: 'name',
+                source: customers
+            });
+        alert('working');
+    });
+</script>
+   
+
+}
 
 
