@@ -31,6 +31,7 @@ namespace Vidly.Controllers.Api
             foreach (var movie in movies)
             {
                 var rental = new Rental { Customer = customer, Movie = movie, DateRented = DateTime.Now };
+                movie.NumberAvailable--;
                 _context.Rentals.Add(rental);
             }
             _context.SaveChanges();
