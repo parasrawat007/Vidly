@@ -321,9 +321,14 @@
     <Compile Include="Migrations\202106020945543_AddingPhoneToApplicationUser.designer.cs">
       <DependentUpon>202106020945543_AddingPhoneToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106040936364_AddRental.cs" />
+    <Compile Include="Migrations\202106040936364_AddRental.designer.cs">
+      <DependentUpon>202106040936364_AddRental.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Identity Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Identity Models\ApplicationUser.cs" />
+    <Compile Include="Models\Rental.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -830,6 +835,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106020945543_AddingPhoneToApplicationUser.resx">
       <DependentUpon>202106020945543_AddingPhoneToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106040936364_AddRental.resx">
+      <DependentUpon>202106040936364_AddRental.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
