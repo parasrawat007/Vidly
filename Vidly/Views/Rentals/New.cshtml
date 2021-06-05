@@ -12,17 +12,22 @@
 
     <div class="mb-3">
         <label class="form-label">Movie</label>
-        <input id="movies" type="text" class="form-control" />
+        <input id="movie" type="text" class="form-control" />
     </div>
+    <ul id="movies" class="list-group">
+    </ul>       
     <button class="btn btn-primary">Submit</button>
 </form>
 
-@section scripts{
+@section scripts
+{
 <script>
     
     $(document).ready(function () {
       
-        var vm = {};
+        var vm = {
+            movieIds:[]
+        };
 
         var customers = new Bloodhound({
             datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
@@ -55,7 +60,7 @@
             }
         });
 
-        $('#movies').typeahead({
+        $('#movie').typeahead({
             minLength: 3,
             highlight: true
         },
@@ -64,14 +69,15 @@
                 display: 'name',
                 source: movies
             }).on("typeahead:select", function (e, movie) {
-                vm.movieid = movie.id;
-
+                $("#movies").append("<li>" + movie.name + "</li>");
+                $("#movie").typeahead("val","")
+                vm.movieIds.push(movie.id);
+                
             });
-      
+
+        
     });
 </script>
-   
-
 }
 
 
