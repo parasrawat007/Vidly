@@ -36,11 +36,11 @@ namespace Vidly
                      "~/Scripts/popper.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-lumen.css",
-                      "~/Content/Site.css",
+                      "~/Content/bootstrap-lumen.css",                    
                       "~/Content/dataTables.bootstrap4.css",
                       "~/Content/typeahead.css",
-                      "~/Content/toastr.css"));
+                      "~/Content/toastr.css",
+                      "~/Content/Site.css"));
 
             //BundleTable.EnableOptimizations = true;
         }
