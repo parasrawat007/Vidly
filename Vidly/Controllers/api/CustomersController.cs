@@ -15,21 +15,30 @@ namespace Vidly.Controllers.Api
     public class CustomersController : ApiController
     {
         private ApplicationDbContext _context;
+
         public CustomersController()
         {
             _context = new ApplicationDbContext();
         }
+
         protected override void Dispose(bool disposing)
         { 
             _context.Dispose();
         }
+
         //GET /api/customers
-        public IHttpActionResult GetCustomers()
+        public IHttpActionResult GetCustomers(string query=null)
         {
-            var cutomersDto = _context.Customers
-                            .Include(c => c.MembershipType)
-                            .ToList()
-                            .Select(Mapper.Map<Customer, CustomerDto>);
+            var customerQuery = _context.Customers
+                            .Include(c => c.MembershipType);
+
+
+            if (!String.IsNullOrWhiteSpace(query))
+                customerQuery = customerQuery.Where(c => c.Name.Contains(query));
+
+             var cutomersDto = customerQuery
+                               .ToList()
+                               .Select(Mapper.Map<Customer, CustomerDto>);
 
             return Ok(cutomersDto);
         }
