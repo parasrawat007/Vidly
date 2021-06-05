@@ -4,7 +4,7 @@
 }
 
 <h2>New</h2>
-<form class="col-md-3">
+<form class="col-md-3" id="newRental">
     <div class="mb-3">
         <label class="form-label">Customer</label>
         <div class="tt-container">
@@ -78,8 +78,20 @@
                 vm.movieIds.push(movie.id);
                 
             });
+        $("#newRental").submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: "/api/newRentals",
+                method: "post",
+                data: vm
+            })
+                .done(function () {
+                    console.log('Done');
+                })
+                .fail(function () {
 
-        
+                });
+        });
     });
 </script>
 }
