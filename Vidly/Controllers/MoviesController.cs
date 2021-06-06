@@ -35,6 +35,7 @@ namespace Vidly.Controllers
             ViewBag.Title = "New Movie";
             var viewModel = new MovieFormViewModel()
             {
+                Id = 0,
                 Genres = _context.Genres.ToList()
             };
             return View(viewModel);
@@ -57,6 +58,7 @@ namespace Vidly.Controllers
             if (movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Now;
+                movie.NumberAvailable=movie.NumberInStock;
                 _context.Movies.Add(movie);
             }
             else

@@ -15,7 +15,7 @@
     <div class="mb-3">
         <label class="form-label">Movie</label>
         <div class="tt-container">
-            <input id="movie" type="text" class="form-control" />
+            <input id="movie" data-rule-validMovie="ture" type="text" class="form-control" />
         </div>
     </div>
     <ul id="movies" class="list-group mb-3"></ul>
@@ -82,9 +82,12 @@
                 return vm.customerId && vm.customerId != 0;
             }, "Please select a valid customer.");
 
+            $.validator.addMethod("validMovie", function () {
+                return vm.movieIds.length && vm.movieIds.length!=0
+            },"Please select any Valid Movie");
+
             $("#newRental").validate({
                 submitHandler: function () {
-                    e.preventDefault();
                     $.ajax({
                         url: "/api/newRentals",
                         method: "post",
