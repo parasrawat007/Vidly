@@ -8,14 +8,14 @@
     <div class="mb-3">
         <label class="form-label">Customer</label>
         <div class="tt-container">
-            <input id="customer" data-rule-validCustomer="true" required type="text" class="form-control" />
+            <input id="customer" name="customer" data-rule-validCustomer="true" required type="text" class="form-control" />
         </div>
     </div>
 
     <div class="mb-3">
         <label class="form-label">Movie</label>
         <div class="tt-container">
-            <input id="movie" data-rule-validMovie="ture" type="text" class="form-control" />
+            <input id="movie" name ="movie" data-rule-validMovie="ture" type="text" class="form-control" />
         </div>
     </div>
     <ul id="movies" class="list-group mb-3"></ul>
@@ -83,10 +83,10 @@
             }, "Please select a valid customer.");
 
             $.validator.addMethod("validMovie", function () {
-                return vm.movieIds.length && vm.movieIds.length!=0
+                return vm.movieIds.length > 0;
             },"Please select any Valid Movie");
 
-            $("#newRental").validate({
+            var validator=$("#newRental").validate({
                 submitHandler: function () {
                     $.ajax({
                         url: "/api/newRentals",
@@ -95,10 +95,18 @@
                     })
                         .done(function () {
                             toastr.success("Rentals Succesfully Recorded.");
+                            $("#customer").typeahead("val", "");
+                            $("#movie").typeahead("val", "");
+                            $("#movie").empty();
+
+                            vm = { movieIds: [] };
+
+                            validator.resetForm();
                         })
                         .fail(function () {
                             toastr.error("Something Unexpected Happened.");
                         });
+                    return false;
                 }
             });
 
